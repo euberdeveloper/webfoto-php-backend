@@ -1,0 +1,24 @@
+{
+    "name": "euber/webfoto-php-backend",
+    "description": "The php backend of webfoto",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Euber\\WebfotoPhpBackend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "euberdeveloper",
+            "email": "euberdeveloper@gmail.com"
+        }
+    ],
+    "require": {
+        "wherw/scan-path": "^1.0",
+        "webmozart/path-util": "^2.3",
+        "myclabs/php-enum": "^1.8"
+    },
+    "scripts": {
+        "start": "php -S localhost:4000 index.php"
+    }
+}
