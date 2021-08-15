@@ -16,7 +16,8 @@
     "require": {
         "wherw/scan-path": "^1.0",
         "webmozart/path-util": "^2.3",
-        "myclabs/php-enum": "^1.8"
+        "myclabs/php-enum": "^1.8",
+        "vlucas/phpdotenv": "^5.3"
     },
     "scripts": {
         "start": "php -S localhost:4000 index.php"

@@ -1,19 +1,15 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+define('WEBFOTO_CWD', getcwd());
 
-require_once 'src/types/DriverType.php';
-require_once 'src/types/InputImage.php';
-require_once 'src/utils/drivers/BaseDriver.php';
-require_once 'src/utils/drivers/DahuaDriver.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/src/autoload.php';
 
 use Webmozart\PathUtil\Path;
 use Webfoto\Utils\Drivers\DahuaDriver;
 
-$inputDir = Path::join(getcwd(), 'inputs', 'input');
+$inputDir = Path::join(WEBFOTO_CWD, 'inputs', 'input', 'cortevalier');
 $images = DahuaDriver::analyzeAlbum($inputDir);
-
-$a = new DateTime();
 
 foreach ($images as $image) {
     echo $image->timestamp->format(DateTime::ATOM) . "<br>";

@@ -1,2 +1,5 @@
 /vendor/
 inputs
+outputs
+.env
+settings.json
