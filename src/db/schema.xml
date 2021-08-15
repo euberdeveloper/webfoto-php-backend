@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database name="webfoto" defaultIdMethod="native">
-    <table name="image" phpName="Image">
-        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="path" type="varchar" required="true" />
-        <column name="timestamp" type="timestamp" required="true" />
-    </table>
-</database>

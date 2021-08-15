@@ -18,12 +18,9 @@
         "webmozart/path-util": "^2.3",
         "myclabs/php-enum": "^1.8",
         "vlucas/phpdotenv": "^5.3",
-        "propel/propel": "~2.0@dev"
+        "faapz/pdo": "^2.1"
     },
     "scripts": {
-        "start": "php -S localhost:4000 index.php",
-        "propel:addLn": "ln -s vendor/bin/propel propel",
-        "propel:sql": "propel sql:build --config-dir ./src/db --schema-dir ./src/db ",
-        "propel:model": "propel model:build --config-dir ./src/db --schema-dir ./src/db "
+        "start": "php -S localhost:4000 index.php"
     }
 }
