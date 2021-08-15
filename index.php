@@ -5,8 +5,14 @@ define('WEBFOTO_CWD', getcwd());
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/src/autoload.php';
 
+use Webfoto\Types\Image;
 use Webmozart\PathUtil\Path;
 use Webfoto\Utils\Drivers\DahuaDriver;
+use Webfoto\Utils\DatabaseService;
+
+$db = new DatabaseService();
+
+$db->insertImage(new Image('xxx', new DateTime()));
 
 $inputDir = Path::join(WEBFOTO_CWD, 'inputs', 'input', 'cortevalier');
 $images = DahuaDriver::analyzeAlbum($inputDir);

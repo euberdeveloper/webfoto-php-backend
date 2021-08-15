@@ -6,7 +6,7 @@ use DateTime;
 use wherw\ScanPath;
 use Webmozart\PathUtil\Path;
 
-use Webfoto\Types\InputImage;
+use Webfoto\Types\Image;
 
 abstract class BaseDriver
 {
@@ -27,11 +27,11 @@ abstract class BaseDriver
 
     protected abstract static function extractDate(string $filename): DateTime;
 
-    protected static function parseImage(string $path, callable $extractDate): InputImage
+    protected static function parseImage(string $path, callable $extractDate): Image
     {
         $filename = self::getFileName($path);
         $timestamp = $extractDate($filename);
-        return new InputImage($path, $timestamp);
+        return new Image($path, $timestamp);
     }
 
     protected static function analyzeAlbumHelper(string $albumPath, callable $extractDate): array

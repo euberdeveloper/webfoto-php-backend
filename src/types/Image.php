@@ -4,7 +4,7 @@ namespace Webfoto\Types;
 
 use DateTime;
 
-class InputImage
+class Image
 {
     public string $path;
     public DateTime $timestamp;

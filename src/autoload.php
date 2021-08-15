@@ -3,7 +3,7 @@
 // Types
 
 require_once 'src/types/DriverType.php';
-require_once 'src/types/InputImage.php';
+require_once 'src/types/Image.php';
 
 // Utils
 
