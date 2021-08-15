@@ -4,15 +4,13 @@ namespace Webfoto\Types;
 
 use DateTime;
 
-class Image
+class InputImage
 {
-    public string $name;
     public string $path;
     public DateTime $timestamp;
 
-    public function __construct(string $name, string $path, DateTime $timestamp)
+    public function __construct(string $path, DateTime $timestamp)
     {
-        $this->name = $name;
         $this->path = $path;
         $this->timestamp = $timestamp;
     }

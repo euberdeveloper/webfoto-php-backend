@@ -33,14 +33,14 @@ class Config
                 'PASSWORD' => $_ENV['DB_PASSWORD'],
                 'CHARSET' => $_ENV['DB_CHARSET'] ?? 'utf8mb4',
             ],
-            'SETTINGS_PATH' => $_ENV['SETTINGS_PATH'] ?? './settings.json',
-            'OUTPUT_FOTOS_PATH' => $_ENV['OUTPUT_FOTOS_PATH'] ?? './outputs'
+            'SETTINGS_PATH' => Path::join(WEBFOTO_CWD, ($_ENV['SETTINGS_PATH'] ?? './settings.json')),
+            'OUTPUT_FOTOS_PATH' =>  Path::join(WEBFOTO_CWD, ($_ENV['OUTPUT_FOTOS_PATH'] ?? './outputs'))
         ];
     }
 
     private function createSettings(): void
     {
-        $raw_json = file_get_contents(Path::join(WEBFOTO_CWD, $this->config['SETTINGS_PATH']));
+        $raw_json = file_get_contents($this->config['SETTINGS_PATH']);
         $this->settings = json_decode($raw_json, true);
     }
 

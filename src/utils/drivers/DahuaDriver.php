@@ -5,7 +5,7 @@ namespace Webfoto\Utils\Drivers;
 use DateTime;
 use Webfoto\Utils\Drivers\BaseDriver;
 
-abstract class DahuaDriver extends BaseDriver
+class DahuaDriver extends BaseDriver
 {
     protected static function extractDate(string $filename): DateTime
     {

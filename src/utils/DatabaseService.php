@@ -25,6 +25,7 @@ class DatabaseService
         $this->pdo->exec("
             CREATE TABLE IF NOT EXISTS images (
                 id INTEGER NOT NULL AUTO_INCREMENT, 
+                name VARCHAR(255) NOT NULL, 
                 path VARCHAR(1000) NOT NULL,
                 timestamp DATETIME NOT NULL,
                 PRIMARY KEY (id)
@@ -73,6 +74,7 @@ class DatabaseService
         sleep(1);
         $insertStmt = $this->pdo
             ->insert([
+                'name' => $image->name,
                 'path' => $image->path,
                 'timestamp' => $image->timestamp->format('Y-m-d H:i:s')
             ])
