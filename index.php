@@ -10,15 +10,10 @@ use Webfoto\Utils\Drivers\DahuaDriver;
 use Webfoto\Utils\ImagesHandler;
 
 $a = new ImagesHandler(WEBFOTO_SETTINGS[0]);
+$a->handle();
 
 
-$inputDir = Path::join(WEBFOTO_CWD, 'inputs', 'input', 'cortevalier');
-$images = DahuaDriver::analyzeAlbum($inputDir);
-
-foreach ($images as $image) {
-    echo $image->timestamp->format(DateTime::ATOM) . "<br>";
-}
-
+echo "finished";
 
 /**
  * 1. Read config file (env)

@@ -54,7 +54,7 @@ class DatabaseService
         $this->createTableIfNotExists();
     }
 
-    public function getLastImageDate()
+    public function getLastImageDate(): ?DateTime
     {
         $selectStmt = $this->pdo
             ->select(['timestamp'])
