@@ -21,6 +21,9 @@
         "propel/propel": "~2.0@dev"
     },
     "scripts": {
-        "start": "php -S localhost:4000 index.php"
+        "start": "php -S localhost:4000 index.php",
+        "propel:addLn": "ln -s vendor/bin/propel propel",
+        "propel:sql": "propel sql:build --config-dir ./src/db --schema-dir ./src/db ",
+        "propel:model": "propel model:build --config-dir ./src/db --schema-dir ./src/db "
     }
 }

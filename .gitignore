@@ -3,3 +3,5 @@ inputs
 outputs
 .env
 settings.json
+propel
+generated-sql

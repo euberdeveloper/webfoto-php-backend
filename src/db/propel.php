@@ -1,9 +1,10 @@
 <?php
 
-require_once '../utils/Config.php';
+define('WEBFOTO_CWD', getcwd());
+require_once getcwd() . '/src/utils/Config.php';
 
 $dbHost = WEBFOTO_CONFIG['DB']['HOST'];
-$dbName = WEBFOTO_CONFIG['DB']['NAME'];
+$dbName = WEBFOTO_CONFIG['DB']['DATABASE'];
 $dbCharset = WEBFOTO_CONFIG['DB']['CHARSET'];
 $dbUser = WEBFOTO_CONFIG['DB']['USERNAME'];
 $dbPass = WEBFOTO_CONFIG['DB']['PASSWORD'];
@@ -19,7 +20,6 @@ return [
                     'dsn'        => "mysql:host={$dbHost};dbname={$dbName};charset={$dbCharset}",
                     'user'       => $dbUser,
                     'password'   => $dbPass,
-                    'encoding'   => $dbCharset,
                     'attributes' => []
                 ]
             ]
