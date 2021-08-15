@@ -61,7 +61,7 @@ class ImagesHandler
 
     public function handle(): void
     {
-        $inputImages = array_slice(DahuaDriver::analyzeAlbum($this->inputPath), 0, 10);
+        $inputImages = DahuaDriver::analyzeAlbum($this->inputPath);
         $lastTimestamp = $this->db->getLastImageDate();
 
         $toDeleteImages = [];
@@ -69,7 +69,6 @@ class ImagesHandler
 
         $currentTimestamp = $this->getNextMinimumTimetamp($lastTimestamp);
         foreach ($inputImages as $image) {
-            echo PHP_EOL . PHP_EOL;
             if ($currentTimestamp === null || $image->timestamp >= $currentTimestamp) {
                 array_push($toSaveImages, $image);
                 $currentTimestamp = $this->getNextMinimumTimetamp($image->timestamp);
