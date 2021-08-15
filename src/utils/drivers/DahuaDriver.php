@@ -3,7 +3,6 @@
 namespace Webfoto\Utils\Drivers;
 
 use DateTime;
-use Webfoto\Types\InputImage;
 use Webfoto\Utils\Drivers\BaseDriver;
 
 abstract class DahuaDriver extends BaseDriver

@@ -1,6 +1,6 @@
 <?php
 
-namespace Webfoto\Utils\Config;
+namespace Webfoto\Utils;
 
 use Dotenv\Dotenv;
 use Webmozart\PathUtil\Path;
