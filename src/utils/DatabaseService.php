@@ -71,7 +71,6 @@ class DatabaseService
 
     public function insertImage(Image $image): void
     {
-        sleep(1);
         $insertStmt = $this->pdo
             ->insert([
                 'name' => $image->name,
