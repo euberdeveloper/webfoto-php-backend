@@ -54,6 +54,6 @@ class Config
 
 if (!isset($webfotoConfig)) {
     $webfotoConfig = new Config();
+    define('WEBFOTO_CONFIG', $webfotoConfig->config);
+    define('WEBFOTO_SETTINGS', $webfotoConfig->settings);
 }
-define('WEBFOTO_CONFIG', $webfotoConfig->config);
-define('WEBFOTO_SETTINGS', $webfotoConfig->settings);
