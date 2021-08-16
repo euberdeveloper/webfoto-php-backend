@@ -108,6 +108,6 @@ class DatabaseService
             array_push($result, $date);
         }
 
-        return $data;
+        return $result;
     }
 }
