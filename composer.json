@@ -21,6 +21,6 @@
         "faapz/pdo": "^2.1"
     },
     "scripts": {
-        "start": "php -S localhost:4000 index.php"
+        "start": "php -S localhost:4000 -t ."
     }
 }
