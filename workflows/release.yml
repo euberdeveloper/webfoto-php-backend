@@ -1,0 +1,37 @@
+name: release
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Use php composer
+        uses: php-actions/composer@v6
+
+      - name: Install composer dependencies
+        run: composer install
+        
+      - name: Compress source
+        uses: master-atul/tar-action@v1.0.2
+        id: compress
+        with:
+          command: c
+          files: |
+            ./**
+          outPath: webfoto-backend.tar.gz
+          
+      - name: Add release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Deploy webfoto php backend"
+          files: |
+            webfoto-backend.tar.gz
