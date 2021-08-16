@@ -65,18 +65,34 @@ class DatabaseService
         $this->createTableIfNotExists();
     }
 
-    public function getLastImageDate(): ?DateTime
+    public function getLastImageDate($name): ?DateTime
     {
         $selectStmt = $this->pdo
             ->select(['timestamp'])
             ->from("images")
             ->orderBy('timestamp DESC')
+            ->where(new Clause\Conditional("name", "=", $name))
             ->limit(new Clause\Limit(1));
 
         $stmt = $selectStmt->execute();
         $data = $stmt->fetch();
 
         return $data ? $this->parseTimestamp($data['timestamp']) : null;
+    }
+
+    public function getLastImagePath($name): ?string
+    {
+        $selectStmt = $this->pdo
+            ->select(['path'])
+            ->from("images")
+            ->orderBy('timestamp DESC')
+            ->where(new Clause\Conditional("name", "=", $name))
+            ->limit(new Clause\Limit(1));
+
+        $stmt = $selectStmt->execute();
+        $data = $stmt->fetch();
+
+        return $data ? $data['path'] : null;
     }
 
     public function insertImage(Image $image): void

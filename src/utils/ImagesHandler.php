@@ -62,7 +62,7 @@ class ImagesHandler
     public function handle(): void
     {
         $inputImages = DahuaDriver::analyzeAlbum($this->inputPath);
-        $lastTimestamp = $this->db->getLastImageDate();
+        $lastTimestamp = $this->db->getLastImageDate($this->name);
 
         $toDeleteImages = [];
         $toSaveImages = [];
