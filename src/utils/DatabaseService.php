@@ -31,6 +31,17 @@ class DatabaseService
                 PRIMARY KEY (id)
             );
         ");
+
+        // TODO: add index by solving IF NOT EXISTS
+        /*
+            ALTER TABLE images
+            ADD INDEX images_name_index(name)
+            USING HASH;
+        */
+    }
+
+    private function parseTimestamp(string $timestamp): DateTime {
+        return new DateTime("{$timestamp} UTC");
     }
 
 
@@ -65,8 +76,7 @@ class DatabaseService
         $stmt = $selectStmt->execute();
         $data = $stmt->fetch();
 
-        $timestamp = $data ? strtotime($data['timestamp']) : null;
-        return $timestamp ? new DateTime("@{$timestamp}") : null;
+        return $data ? $this->parseTimestamp($data['timestamp']) : null;
     }
 
     public function insertImage(Image $image): void
@@ -82,4 +92,22 @@ class DatabaseService
         $insertStmt->execute();
     }
 
+    public function getImages(string $name): array
+    {
+        $selectStmt = $this->pdo
+            ->select(['timestamp'])
+            ->from("images")
+            ->orderBy('timestamp ASC')
+            ->where(new Clause\Conditional("name", "=", $name));
+
+        $stmt = $selectStmt->execute();
+
+        $result = [];
+        for($data = $stmt->fetch(); $data !== false; $data = $stmt->fetch()) {
+            $date = $this->parseTimestamp($data['timestamp']);
+            array_push($result, $date);
+        }
+
+        return $data;
+    }
 }
