@@ -3,14 +3,12 @@
         "name": "myalbum",
         "inputPath": "./path/to/my/album/photos",
         "driver": "DAHUA",
-        "keepEverySeconds": 600,
-        "analyzeCrono": "*/5 * * * *"
+        "keepEverySeconds": 600
     },
     {
         "name": "myalbum2",
         "inputPath": "./path/to/my/album2/photos",
         "driver": "DAHUA",
-        "keepEverySeconds": 1500,
-        "analyzeCrono": "*/7 * * * *"
+        "keepEverySeconds": 1500
     }
 ]
